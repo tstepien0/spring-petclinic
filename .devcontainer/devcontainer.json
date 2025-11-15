@@ -1,23 +1,28 @@
 {
-  "name": "Java",
+  "name": "spring-petclinic",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
       "version": "21-oracle",
       "jdkDistro": "oracle"
     },
-    "ghcr.io/devcontainers/features/azure-cli:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-
+  "postCreateCommand": "curl -fsSL https://dl.dagger.io/dagger/install.sh | DAGGER_VERSION=0.19.6 BIN_DIR=$HOME/.local/bin sh && mkdir -p /home/vscode/.local/share/bash-completion/completions && dagger completion bash > /home/vscode/.local/share/bash-completion/completions/dagger",
   "customizations": {
     "vscode": {
       "settings": {},
       "extensions": [
         "redhat.vscode-xml",
-        "visualstudioexptteam.vscodeintellicode",
-        "vscjava.vscode-java-pack"
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-gradle",
+        "vmware.vscode-boot-dev-pack",
+        "shengchen.vscode-checkstyle",
+        "Dagger.dagger"
       ]
     }
   },
